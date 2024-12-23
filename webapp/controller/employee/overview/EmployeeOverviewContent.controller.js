@@ -43,6 +43,7 @@ sap.ui.define(
         _onRouteMatched: function (oEvent) {
           // save the current query state
           this._oRouterArgs = oEvent.getParameter("arguments");
+          console.log(typeof this._oRouterArgs);
           this._oRouterArgs["?query"] = this._oRouterArgs["?query"] || {};
 
           // search/filter via URL hash
@@ -54,7 +55,6 @@ sap.ui.define(
         },
 
         onSearchEmployeesTable: function (oEvent) {
-          this._applySearchFilter(oEvent.getSource().getValue());
           var oRouter = this.getRouter();
           // update the hash with the current search term
           this._oRouterArgs["?query"].search = oEvent.getSource().getValue();
